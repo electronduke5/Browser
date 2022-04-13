@@ -1,0 +1,43 @@
+﻿<Window x:Class="Браузер.HistoryDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Браузер"
+        xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="HistoryDialog" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="Blue">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10*" />
+                <ColumnDefinition/>
+                
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="История браузера" FontWeight="Bold" HorizontalAlignment="Center" Grid.Column="0" VerticalAlignment="Center" FontSize="25" Foreground="Yellow"/>
+
+            <Button x:Name="btDeleteElement" DockPanel.Dock="Right" Content="{material:PackIcon Kind=Delete}" Padding="0" Grid.Column="1" ToolTip="Удалить выбранные элементы" Click="btDeleteElement_Click"/>
+
+        </Grid>
+
+        <ListView Name="historyKList" ItemsSource="{Binding History}" Grid.Row="1">
+            <ListView.View>
+                <GridView>
+                    
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Date}" Width="100">Date</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Time}" Width="100">Time</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=URL}">URL</GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Name="btCloseAll" Content="Очистить историю" Grid.Row="2" FontSize="20" Margin="150,0,150,0" material:ButtonAssist.CornerRadius="15" Padding="0" Background="{StaticResource PrimaryHueDarkBrush}" Click="btCloseAll_Click" />
+        <Button Name="btGoHome" Content="Закрыть историю просмотров" Grid.Row="3" FontSize="20" Margin="100,0,100,0" material:ButtonAssist.CornerRadius="15" Padding="0" Click="btGoHome_Click"/>
+    </Grid>
+</Window>

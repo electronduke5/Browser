@@ -1,0 +1,32 @@
+﻿<Window x:Class="Браузер.ColorPicker"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Браузер"
+         xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="ColorPicker" Height="450" Width="800" Background="Gray">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="150*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="25*"/>
+        </Grid.RowDefinitions>
+
+
+        <TextBlock Text="Выберите цвет" FontSize="25" HorizontalAlignment="Center" Grid.Row="0" Style="{StaticResource MaterialDesignCaptionTextBlock}"/>
+        <material:ColorPicker x:Name="_ColorPiker"  Grid.Row="1"   />
+
+
+        <Button Content="Сохранить цвет" Click="Button_Click" Grid.Row="2" Height="Auto" />
+        <TextBlock Text="Поставить картинку на задний фон" HorizontalAlignment="Center" FontSize="24" Grid.Row="3" />
+        <Button Content="ВЫБРАТЬ ФАЙЛ" Style="{StaticResource MaterialDesignRaisedAccentButton}" Name="btOpenFile" Click="btOpenFile_Click" Grid.Row="4" Height="Auto"  />
+
+
+
+    </Grid>
+</Window>
